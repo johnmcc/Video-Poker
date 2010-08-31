@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <!--
+            Copyright (c)  2010 John McCollum / 360innovate
+            
+            Permission is hereby granted, free of charge, to any person obtaining a copy
+            of this software and associated documentation files (the "Software"), to deal
+            in the Software without restriction, including without limitation the rights
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is
+            furnished to do so, subject to the following conditions:
+            
+            The above copyright notice and this permission notice shall be included in
+            all copies or substantial portions of the Software.
+            
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+            THE SOFTWARE.
+            
+            Disclaimer: I am most certainly not holding this up to be an example of beautiful code - this was my entry to http://10k.aneventapart.com.
+            -->
+            <title>Video Poker</title>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+            <script src="videopoker.min.js"></script>
+            <style>
+            body,html{background: url(images/bbg.gif) repeat;font-family: Georgia, serif;}
+            h1 {text-align: center;}
+            .cc{-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; }
+            .dr{background: url(images/cbg.gif) repeat;width:130px;height:175px;margin:20px 0;padding:5px;position:relative;top:20px;}
+            .c{margin:10px 10px 0 0;cursor: pointer;float:left;display:inline;width: 130px;height: 175px;color:black;padding:5px;}
+            #cn{height: 650px;margin:25px 10px 0 10px;padding:10px;background:black;color:white;-webkit-border-radius: 10px;-moz-border-radius: 10px;border-radius: 10px;min-width:1050px;}
+            #r{float:right;width: 300px;margin-top:10px;}
+            input{border: 1px solid #CCC;padding: 5px 10px;color: #000;margin:2px 0 20px 0;}
+            input:disabled{background: #888;border:1px solid #888;}
+            br#clearer{clear:both;float:left;}
+            #d, #d:link, #d:visited{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cccccc', endColorstr='#888');background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#888));background: -moz-linear-gradient(top, #ccc,  #888);padding: 15px 50px;color:#fff;text-decoration: none;margin:10px 0;}
+            #d:hover,#d:active{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#888', endColorstr='#ccc');background: -webkit-gradient(linear, left top, left bottom, from(#888), to(#ccc));background: -moz-linear-gradient(top,  #888,  #ccc);}
+            #m{font-size:24px;}
+            .tl,.tr, .bl, .br{float:left;font-weight: bold;font-size:28px;}
+            .tr, .br{float:right;}
+            .s{clear:both;text-align:center;width:100%;float:left;font-size: 96px;}
+            .r{color:red !important;}
+            #w{font-weight: bold;height:40px;}
+            p{margin:10px 0;}
+            </style>
+
+        </head>
+        <body>
+            <div id="cn">
+                <h1>Video Poker</h1>
+                <div id="r">
+                    <table id="win">
+                        <tr>
+                            <th>Winning Hand</th>
+                            <th>Prize</th>
+                        </tr>
+                        <tr>
+                            <td>Jacks or Better</td>
+                            <td>2 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Two Pair</td>
+                            <td>3 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Three of a Kind</td>
+                            <td>4 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Straight</td>
+                            <td>5 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Flush</td>
+                            <td>7 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Full House</td>
+                            <td>10 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Four of a Kind</td>
+                            <td>20 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Straight Flush</td>
+                            <td>30 * Stake</td>
+                        </tr>
+                        <tr>
+                            <td>Royal Flush</td>
+                            <td>100 * Stake</td>
+                        </tr>
+                    </table>
+                    <p>Your pot: <br />
+                    <span id="m">$1000</span>
+                    </p>
+                </div>
+                <div id="w">Choose your stake, then click deal.</div>
+                <p>Your stake: <br /><input type="text" id="s" value="50" /></p>
+                <a id="d" class="deal" href="#">Deal</a>
+                <div class="dr cc"></div>
+                <div class="c cc" id="c0"></div>
+                <div class="c cc" id="c1"></div>
+                <div class="c cc" id="c2"></div>
+                <div class="c cc" id="c3"></div>
+                <div class="c cc" id="c4"></div>
+                <br id="clearer"/>
+            </div>
+        </body>
+    </html>
